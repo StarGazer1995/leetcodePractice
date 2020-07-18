@@ -17,11 +17,12 @@ class solution{
         if(std::accumulate(temp.begin(),temp.end(),0)==target){
             if(check(res,temp)) return;
             res.push_back(temp);
-        }
-        for(int i = pos;i<candidates.size();i++){
-            temp.push_back(candidates[i]);
-            backtrack(res,temp,candidates,target,i+1);
-            temp.pop_back();
+        }else{
+            for(int i = pos;i<candidates.size();i++){
+                temp.push_back(candidates[i]);
+                backtrack(res,temp,candidates,target,i+1);
+                temp.pop_back();
+            }
         }
     }
     public:
